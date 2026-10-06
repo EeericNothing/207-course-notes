@@ -19,7 +19,7 @@ public class MyHashing {
 
   /** Creates a MyHashing whose seed starts at 0. */
   public MyHashing() {
-    // TODO: this constructor takes no arguments; leave the seed at its default.
+    new MyHashing(0);
   }
 
   /**
@@ -28,7 +28,7 @@ public class MyHashing {
    * @param seed the initial seed value
    */
   public MyHashing(int seed) {
-    // TODO: store the parameter in this object's seed field.
+    this.seed = seed;
   }
 
   /**
@@ -38,8 +38,9 @@ public class MyHashing {
    * @return the seed value from before this call
    */
   public int hash(int value) {
-    // TODO
-    return 0;
+    int i = seed;
+    this.seed = value;
+    return i;
   }
 
   /**
@@ -51,8 +52,9 @@ public class MyHashing {
    * @return (previous seed + value) % MODULO
    */
   public int hash(char value) {
-    // TODO
-    return 0;
+    int i = seed;
+    this.seed = value;
+    return (i + value) % MODULO;
   }
 
   /**
@@ -65,6 +67,11 @@ public class MyHashing {
    */
   public static int hash(String value) {
     // TODO: String.toCharArray() may help.
-    return 0;
+    char[] arr = value.toCharArray();
+    int sum = 0;
+    for (char ch: arr) {
+      sum += ch;
+    }
+    return sum;
   }
 }
