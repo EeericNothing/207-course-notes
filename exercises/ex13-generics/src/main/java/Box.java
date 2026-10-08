@@ -19,6 +19,7 @@ public class Box<T> {
    */
   public void set(T item) {
     // TODO: store item in this box's field (mind the shadowing — use `this`).
+    this.item = item;
   }
 
   /**
@@ -28,7 +29,7 @@ public class Box<T> {
    */
   public T get() {
     // TODO
-    return null;
+    return this.item;
   }
 
   /**
@@ -38,7 +39,7 @@ public class Box<T> {
    */
   public boolean isEmpty() {
     // TODO
-    return false;
+    return this.item == null;
   }
 
   /**
@@ -53,6 +54,6 @@ public class Box<T> {
    */
   public static <T extends Comparable<T>> T max(T a, T b) {
     // TODO: use a.compareTo(b) to decide which to return.
-    return a;
+    return a.compareTo(b) >= 0 ? a : b;
   }
 }
